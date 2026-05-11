@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 # Harness: background execution -- the model thinks while the harness waits.
 """
 s08_background_tasks.py - Background Tasks
@@ -58,9 +58,10 @@ class BackgroundManager:
         task_id = str(uuid.uuid4())[:8]
         self.tasks[task_id] = {"status": "running", "result": None, "command": command}
         thread = threading.Thread(
-            target=self._execute, args=(task_id, command), daemon=True
+            target=self._execute, args=(task_id, command), daemon=True#守护线程，主线程结束时自动退出
         )
-        thread.start()
+        thread.start()#启动线程
+        #立即返回任务ID和命令摘要，线程在后台执行命令并更新状态和结果
         return f"Background task {task_id} started: {command[:80]}"
 
     def _execute(self, task_id: str, command: str):

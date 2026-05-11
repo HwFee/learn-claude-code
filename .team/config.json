@@ -1,0 +1,15 @@
+{
+  "team_name": "default",
+  "members": [
+    {
+      "name": "\u5c0f\u7801",
+      "role": "\u524d\u7aef\u5f00\u53d1\u8005",
+      "status": "working"
+    },
+    {
+      "name": "\u5c0f\u827e",
+      "role": "\u6570\u636e\u5206\u6790\u5e08",
+      "status": "idle"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 # Harness: team mailboxes -- multiple models, coordinated through files.
 """
 s09_agent_teams.py - Agent Teams
@@ -201,6 +201,7 @@ class TeammateManager:
         member = self._find_member(name)
         if member and member["status"] != "shutdown":
             member["status"] = "idle"
+            #这里是全量写入 如果同时写入可能有出现问题 建议加一把锁
             self._save_config()
 
     def _exec(self, sender: str, tool_name: str, args: dict) -> str:
